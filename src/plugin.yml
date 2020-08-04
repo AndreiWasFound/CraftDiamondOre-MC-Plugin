@@ -1,0 +1,5 @@
+name: CraftDiamondOre
+version: 1.0 PRIVATE DEV
+main: andreiwasfound.craftdiamondore.Main
+author: AndreiWasFound
+api-version: 1.13

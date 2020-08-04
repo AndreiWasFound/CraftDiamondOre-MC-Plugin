@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CraftDiamondOre:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CraftDiamondOre_jar</output-path>
+    <root id="archive" name="CraftDiamondOre.jar">
+      <element id="module-output" name="CraftDiamondOre" />
+    </root>
+  </artifact>
+</component>
