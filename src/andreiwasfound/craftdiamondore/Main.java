@@ -1,6 +1,5 @@
 package andreiwasfound.craftdiamondore;
 
-import andreiwasfound.craftdiamondore.Utilities.CommandTabCompleter;
 import andreiwasfound.craftdiamondore.Utilities.MetricsLite;
 import andreiwasfound.craftdiamondore.Utilities.UpdateChecker;
 import org.bukkit.Bukkit;
@@ -68,9 +67,9 @@ public class Main extends JavaPlugin {
     public void updateChecker() {
         new UpdateChecker(this, 82326).getLatestVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
-                printToConsole("DiamondBrokeMessage is up to date!");
+                printToConsole("CraftDiamondOre is up to date!");
             } else {
-                printToConsole("DiamondBrokeMessage is outdated!");
+                printToConsole("CraftDiamondOre is outdated!");
                 printToConsole("Newest version: " + version);
                 printToConsole("Your version: " + pluginymlVersion);
                 printToConsole("Please Update Here: " + pluginymlWebsite);
