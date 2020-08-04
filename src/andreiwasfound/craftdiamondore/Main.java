@@ -19,9 +19,6 @@ public class Main extends JavaPlugin {
         printToConsole("UpdateChecker is trying to register");
         updateChecker();
         printToConsole("UpdateChecker has been registered successfully");
-        printToConsole("Commands are trying to register");
-        registerCommands();
-        printToConsole("Commands have been registered successfully");
         printToConsole("Config.yml is trying to register");
         saveDefaultConfig();
         printToConsole("Config.yml has been registered successfully");
@@ -62,11 +59,6 @@ public class Main extends JavaPlugin {
         recipe.setIngredient('D', Material.DIAMOND);
         recipe.setIngredient('S', Material.STONE);
         return recipe;
-    }
-
-    public void registerCommands() {
-        getCommand("craftdiamondore").setExecutor(new ReloadConfig(this));
-        getCommand("craftdiamondore").setTabCompleter(new CommandTabCompleter());
     }
 
     public void printToConsole(String msg) {
