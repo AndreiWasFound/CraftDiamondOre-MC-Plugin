@@ -1,5 +1,6 @@
 package andreiwasfound.craftdiamondore;
 
+import andreiwasfound.craftdiamondore.Utilities.CommandTabCompleter;
 import andreiwasfound.craftdiamondore.Utilities.MetricsLite;
 import andreiwasfound.craftdiamondore.Utilities.UpdateChecker;
 import org.bukkit.Bukkit;
@@ -15,9 +16,22 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        printToConsole("UpdateChecker is trying to register");
+        updateChecker();
+        printToConsole("UpdateChecker has been registered successfully");
+        printToConsole("Commands are trying to register");
+        registerCommands();
+        printToConsole("Commands have been registered successfully");
+        printToConsole("Config.yml is trying to register");
+        saveDefaultConfig();
+        printToConsole("Config.yml has been registered successfully");
         printToConsole("Recipes are trying to register");
-        Bukkit.addRecipe(getDiamondOre1DiamondRecipe());
-        Bukkit.addRecipe(getDiamondOre5DiamondRecipe());
+        if (getConfig().getBoolean("1-diamond-recipe")) {
+            Bukkit.addRecipe(getDiamondOre1DiamondRecipe());
+        }
+        if (getConfig().getBoolean("5-diamond-recipe")) {
+            Bukkit.addRecipe(getDiamondOre5DiamondRecipe());
+        }
         printToConsole("Recipes have been registered successfully");
         printToConsole("bStats is trying to register");
         int pluginId = 8417;
@@ -50,8 +64,13 @@ public class Main extends JavaPlugin {
         return recipe;
     }
 
+    public void registerCommands() {
+        getCommand("craftdiamondore").setExecutor(new ReloadConfig(this));
+        getCommand("craftdiamondore").setTabCompleter(new CommandTabCompleter());
+    }
+
     public void printToConsole(String msg) {
-        this.getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.AQUA + "DiamondBrokeMessage" + ChatColor.DARK_GRAY + "]" + ChatColor.RESET + " " + msg);
+        this.getServer().getConsoleSender().sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.AQUA + "CraftDiamondOre" + ChatColor.DARK_GRAY + "]" + ChatColor.RESET + " " + msg);
     }
 
     public void updateChecker() {
