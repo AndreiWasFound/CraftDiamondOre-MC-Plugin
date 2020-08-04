@@ -66,7 +66,7 @@ public class Main extends JavaPlugin {
     }
 
     public void updateChecker() {
-        new UpdateChecker(this, 80958).getLatestVersion(version -> {
+        new UpdateChecker(this, 82326).getLatestVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
                 printToConsole("DiamondBrokeMessage is up to date!");
             } else {
